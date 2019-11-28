@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
-        android:text="Log In"
+        android:text="@string/login"
         android:textColor="@color/materialred"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,6 +49,7 @@
         android:layout_height="60dp"
         android:layout_marginTop="60dp"
         android:backgroundTint="#CD4B4545"
+        android:drawableLeft="@drawable/ic_person_name"
         android:textColorHint="@color/grey"
         android:ems="10"
         android:hint="@string/enter_username"
@@ -71,18 +72,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etPassword" />
 
-    <TextView
-        android:id="@+id/txtForgotPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="Forgot Password ?"
-        android:textColor="@color/materialred"
-        android:textSize="22sp"
-        android:clickable="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnSignup" />
 
     <EditText
         android:id="@+id/etPassword"
@@ -93,6 +82,7 @@
         android:textColorHint="@color/grey"
         android:textAlignment="center"
         android:ems="10"
+        android:drawableLeft="@drawable/ic_pass_name"
         android:hint="Enter Password"
         android:inputType="textPassword"
         android:textColor="#CD4B4545"

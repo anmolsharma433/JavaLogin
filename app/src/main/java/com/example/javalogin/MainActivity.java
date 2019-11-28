@@ -18,11 +18,10 @@ public class MainActivity extends AppCompatActivity {
     Button login, signup;
     EditText Email;
     EditText Pass;
-
+    DatabaseHelper databaseHelper = new DatabaseHelper(this);
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        openHelper = new DatabaseHelper(this);
         login = findViewById(R.id.btnLogin);
         signup = findViewById(R.id.btnSignup);
         Email = findViewById(R.id.etEmail);
@@ -30,6 +29,16 @@ public class MainActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (databaseHelper.userMatched(Email.getText().toString(), Pass.getText().toString()))
+                {
+                    Toast.makeText(MainActivity.this, "Successfully Logged In.",Toast.LENGTH_SHORT).show();
+
+                }
+                else
+                {
+                    Toast.makeText(MainActivity.this, "User Not Found.",Toast.LENGTH_SHORT).show();
+                }
+
 
             }
 

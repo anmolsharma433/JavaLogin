@@ -2,6 +2,7 @@ package com.example.javalogin;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.Toast;
@@ -20,6 +21,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
 
+public Cursor c;
 
 
 
@@ -48,5 +50,31 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     }
+    public Boolean userMatched(String email,String pass)
+    {    SQLiteDatabase db = this.getReadableDatabase();
 
-}
+        //String selectQuery = "SELECT  * FROM " + UserData + "where" +login_email.equals(email) +"and"+ login_pass.equals(pass));
+
+        //String email1 = "select" +login_email + "from" + UserData + "where" + login_email.equals(email);
+        //String pass1 = "select" +login_pass + "from" + UserData + "where" + login_pass.equals(email);
+        //Cursor c = db.rawQuery("select * from "+UserData+ "where " +login_email.equals(email)+ "and" +login_pass.equals(pass));
+
+       // if (email1.equals(null) || pass1.equals(null))
+       // {
+       //     return false;
+       // }else return true;
+
+        //String q = "select * from UserData where login_email = '" + email + "' and login_pass = '" + pass + '\'';
+
+
+        c = db.rawQuery("Select * from " + UserData + " Where " +login_email+ " =? and " + login_pass +  " =? ",new String[]{email,pass});
+        if(c.getCount() > 0){
+            return true;
+        }
+            return false;
+
+    }
+
+
+    }
+
