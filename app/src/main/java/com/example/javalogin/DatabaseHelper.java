@@ -68,7 +68,9 @@ public Cursor c;
 
 
         c = db.rawQuery("Select * from " + UserData + " Where " +login_email+ " =? and " + login_pass +  " =? ",new String[]{email,pass});
-        if(c.getCount() < 0){
+
+        int count =c.getCount();
+        if(count < 0){
             c.close();
             return false;
         }
